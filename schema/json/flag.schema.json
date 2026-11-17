@@ -1,0 +1,215 @@
+{
+  "$defs": {
+    "Direction": {
+      "enum": [
+        "over",
+        "under",
+        "mismatch",
+        "none"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "EntityRef": {
+      "additionalProperties": false,
+      "properties": {
+        "card_id": {
+          "title": "Card Id",
+          "type": "string"
+        },
+        "resource_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resource Id"
+        },
+        "cost_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cost Code"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        }
+      },
+      "required": [
+        "card_id"
+      ],
+      "title": "EntityRef",
+      "type": "object"
+    },
+    "FlagStatus": {
+      "enum": [
+        "anomaly",
+        "warning",
+        "insufficient_data",
+        "parse_error"
+      ],
+      "title": "FlagStatus",
+      "type": "string"
+    },
+    "Severity": {
+      "description": "Ordered roughly by billing-dollar impact (rubric owned by the taxonomy).",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A single finding, as a PE reads it.\n\n``field`` uses dotted paths into the card, e.g. ``day_total.ot``,\n``week_total.st``, ``cells[51234.5].st``, ``logged_total``, ``unit_rate``.\n``evidence`` holds every number the rationale cites, so an L3 explanation\ncan quote them without doing arithmetic.",
+  "properties": {
+    "rule_id": {
+      "examples": [
+        "R1",
+        "R3",
+        "L2.unit_rate"
+      ],
+      "title": "Rule Id",
+      "type": "string"
+    },
+    "layer": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "title": "Layer",
+      "type": "string"
+    },
+    "anomaly_class": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Anomaly Class"
+    },
+    "status": {
+      "$ref": "#/$defs/FlagStatus",
+      "default": "anomaly"
+    },
+    "field": {
+      "title": "Field",
+      "type": "string"
+    },
+    "entity": {
+      "$ref": "#/$defs/EntityRef"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Value"
+    },
+    "expected_low": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expected Low"
+    },
+    "expected_high": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expected High"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    },
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "direction": {
+      "$ref": "#/$defs/Direction"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    },
+    "evidence": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "required": [
+    "rule_id",
+    "layer",
+    "field",
+    "entity",
+    "severity",
+    "confidence",
+    "direction",
+    "rationale"
+  ],
+  "title": "Flag",
+  "type": "object"
+}

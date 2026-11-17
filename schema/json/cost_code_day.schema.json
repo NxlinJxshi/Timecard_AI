@@ -1,0 +1,117 @@
+{
+  "additionalProperties": false,
+  "description": "Crew aggregate for one cost code on one card.\n\n``unit_rate`` = crew man-hours / quantity; ``None`` for LS units or zero\nquantity (L2 then falls back to an hours-based metric).",
+  "properties": {
+    "card_id": {
+      "title": "Card Id",
+      "type": "string"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Date"
+    },
+    "week_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Week Key"
+    },
+    "job_number": {
+      "title": "Job Number",
+      "type": "string"
+    },
+    "foreman_id": {
+      "title": "Foreman Id",
+      "type": "string"
+    },
+    "cost_code": {
+      "title": "Cost Code",
+      "type": "string"
+    },
+    "cost_code_description": {
+      "title": "Cost Code Description",
+      "type": "string"
+    },
+    "quantity": {
+      "title": "Quantity",
+      "type": "number"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "labor_st": {
+      "title": "Labor St",
+      "type": "number"
+    },
+    "labor_ot": {
+      "title": "Labor Ot",
+      "type": "number"
+    },
+    "labor_dt": {
+      "title": "Labor Dt",
+      "type": "number"
+    },
+    "crew_man_hours": {
+      "title": "Crew Man Hours",
+      "type": "number"
+    },
+    "equipment_hours": {
+      "title": "Equipment Hours",
+      "type": "number"
+    },
+    "headcount": {
+      "title": "Headcount",
+      "type": "integer"
+    },
+    "equipment_count": {
+      "title": "Equipment Count",
+      "type": "integer"
+    },
+    "unit_rate": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Unit Rate"
+    }
+  },
+  "required": [
+    "card_id",
+    "date",
+    "week_key",
+    "job_number",
+    "foreman_id",
+    "cost_code",
+    "cost_code_description",
+    "quantity",
+    "unit",
+    "labor_st",
+    "labor_ot",
+    "labor_dt",
+    "crew_man_hours",
+    "equipment_hours",
+    "headcount",
+    "equipment_count",
+    "unit_rate"
+  ],
+  "title": "CostCodeDay",
+  "type": "object"
+}

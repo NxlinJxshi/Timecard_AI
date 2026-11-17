@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "card_id": "card1-steven-powell-wkA",
+  "source": "image1.png",
+  "job_number": "31062-00",
+  "job_name": "Westmorland Elementary School",
+  "foreman_id": "903784",
+  "foreman_name": "Steven Powell",
+  "shift": 1,
+  "date": null,
+  "week_key": "wkA",
+  "notes": [
+    "Date is not visible on the screenshot; order of card1 vs card2 within the week is unknown.",
+    "week_key is inferred: card1 and card2 show identical Weekly Hours for all five workers.",
+    "Weekly Hours line is a full-week snapshot, not a running total as of this day (same values on both days).",
+    "Break length is not on the card; window minus logged total is 0.5 h for every row.",
+    "Cost code 51214.4 shows 0 EA but carries labor and equipment hours (R8 candidate in Week 2).",
+    "Badge meanings ('N' on cost codes, 'A' on workers) are not yet confirmed."
+  ],
+  "cost_codes": [
+    {"code": "51234.5", "description": "Erect Steel and Panelize", "quantity": 12, "unit": "EA", "badges": ["N"]},
+    {"code": "51238.5", "description": "Torque Test", "quantity": 4, "unit": "EA", "badges": ["N"]},
+    {"code": "51056.5", "description": "Touch Up Paint", "quantity": 0.25, "unit": "LS", "badges": ["N"]},
+    {"code": "73180.7000", "description": "Project Cleanup NOC", "quantity": 0.5, "unit": "LS", "badges": ["N"]},
+    {"code": "73020.7000", "description": "Foreman - Administrati", "description_truncated": true, "quantity": 1, "unit": "DA"},
+    {"code": "51214.4", "description": "Form; Pour; Strip Fou", "description_truncated": true, "quantity": 0, "unit": "EA", "badges": ["N"]}
+  ],
+  "rows": [
+    {
+      "resource_id": "903784", "resource_type": "labor", "name": "Steven Powell",
+      "resource_class": "SLSDL-FM", "class_description": "Laborer Group 5", "class_description_truncated": true,
+      "start": "06:30", "end": "18:30", "logged_total": 11.5, "day_total": "8/3.5", "week_total": "40/10",
+      "cells": {"51234.5": "5/2.5", "73180.7000": "2", "73020.7000": "/1", "51214.4": "1"}
+    },
+    {
+      "resource_id": "ACF02025", "resource_type": "equipment", "name": "FRD, F350, 19", "operator_id": "903784",
+      "day_total": "4",
+      "cells": {"51234.5": "1", "73180.7000": "2", "51214.4": "1"}
+    },
+    {
+      "resource_id": "906882", "resource_type": "labor", "name": "Alfred Broyles", "badges": ["A"],
+      "resource_class": "SLLS-L1", "class_description": "S CA Laborer Lea", "class_description_truncated": true,
+      "start": "06:30", "end": "17:30", "logged_total": 10.5, "day_total": "8/2.5", "week_total": "40/7",
+      "cells": {"51234.5": "2/2.5", "51238.5": "6"}
+    },
+    {
+      "resource_id": "ACE02030", "resource_type": "equipment", "name": "FRD, F550, 19 (A", "name_truncated": true,
+      "operator_id": "906882", "day_total": "8",
+      "cells": {"51234.5": "2", "51238.5": "6"}
+    },
+    {
+      "resource_id": "905224", "resource_type": "labor", "name": "Raul Cholico", "badges": ["A"],
+      "resource_class": "SLLS-L2", "class_description": "S CA Laborer Lea", "class_description_truncated": true,
+      "start": "06:30", "end": "17:30", "logged_total": 10.5, "day_total": "8/2.5", "week_total": "40/7",
+      "cells": {"51234.5": "6/2.5", "73180.7000": "2"}
+    },
+    {
+      "resource_id": "ABF01103", "resource_type": "equipment", "name": "CHEVY, COLORA", "name_truncated": true,
+      "operator_id": "905224", "day_total": "8",
+      "cells": {"51234.5": "6", "73180.7000": "2"}
+    },
+    {
+      "resource_id": "907542", "resource_type": "labor", "name": "Ricky Cholico", "badges": ["A"],
+      "resource_class": "SLLS-A1", "class_description": "S CA Laborer App", "class_description_truncated": true,
+      "start": "06:30", "end": "17:30", "logged_total": 10.5, "day_total": "8/2.5", "week_total": "40/7",
+      "cells": {"51234.5": "4/2.5", "51056.5": "4"}
+    },
+    {
+      "resource_id": "906896", "resource_type": "labor", "name": "Jesus Sarabia",
+      "resource_class": "SLLS-04", "class_description": "S CA Laborer Gro", "class_description_truncated": true,
+      "start": "06:30", "end": "17:00", "logged_total": 10, "day_total": "8/2", "week_total": "40/6.5",
+      "cells": {"51234.5": "6/2", "73180.7000": "2"}
+    },
+    {
+      "resource_id": "UAT7698", "resource_type": "equipment", "name": "SKYTRAK 10054,", "name_truncated": true,
+      "day_total": "8",
+      "cells": {"51234.5": "4", "73180.7000": "4"}
+    },
+    {
+      "resource_id": "LBS7344", "resource_type": "equipment", "name": "BOBCAT S510, S", "name_truncated": true,
+      "day_total": "4",
+      "cells": {"51234.5": "1", "73180.7000": "2", "51214.4": "1"}
+    },
+    {
+      "resource_id": "AWP7241", "resource_type": "equipment", "name": "JLG 400S, BOOM", "name_truncated": true,
+      "day_total": "8",
+      "cells": {"51234.5": "1", "51238.5": "4", "51056.5": "3"}
+    }
+  ]
+}

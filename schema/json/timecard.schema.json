@@ -1,0 +1,335 @@
+{
+  "$defs": {
+    "CostCode": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "examples": [
+            "51234.5",
+            "73020.7000"
+          ],
+          "pattern": "^\\d{5}\\.\\d+$",
+          "title": "Code",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "description_truncated": {
+          "default": false,
+          "title": "Description Truncated",
+          "type": "boolean"
+        },
+        "quantity": {
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "number"
+        },
+        "unit": {
+          "examples": [
+            "EA",
+            "LS",
+            "DA",
+            "LD"
+          ],
+          "pattern": "^[A-Z]{1,4}$",
+          "title": "Unit",
+          "type": "string"
+        },
+        "badges": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Badges",
+          "type": "array"
+        }
+      },
+      "required": [
+        "code",
+        "description",
+        "quantity",
+        "unit"
+      ],
+      "title": "CostCode",
+      "type": "object"
+    },
+    "Hours": {
+      "additionalProperties": false,
+      "description": "Straight / overtime / double-time hours. Accepts ``\"8/2.5\"`` or a number.",
+      "properties": {
+        "st": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "St",
+          "type": "number"
+        },
+        "ot": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Ot",
+          "type": "number"
+        },
+        "dt": {
+          "default": 0.0,
+          "minimum": 0,
+          "title": "Dt",
+          "type": "number"
+        }
+      },
+      "title": "Hours",
+      "type": "object"
+    },
+    "ResourceRow": {
+      "additionalProperties": false,
+      "description": "One labor or equipment row on the card.\n\nLabor rows carry the Start/End window, the logged daily total (bold number in\nthe Start/End column), the daily split (Total column, first line) and the\nweekly split (Total column, second line). Equipment rows carry only hours.",
+      "properties": {
+        "resource_id": {
+          "title": "Resource Id",
+          "type": "string"
+        },
+        "resource_type": {
+          "$ref": "#/$defs/ResourceType"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "name_truncated": {
+          "default": false,
+          "title": "Name Truncated",
+          "type": "boolean"
+        },
+        "resource_class": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resource Class"
+        },
+        "class_description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Class Description"
+        },
+        "class_description_truncated": {
+          "default": false,
+          "title": "Class Description Truncated",
+          "type": "boolean"
+        },
+        "operator_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Operator Id"
+        },
+        "badges": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Badges",
+          "type": "array"
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "format": "time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "logged_total": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Logged Total"
+        },
+        "day_total": {
+          "$ref": "#/$defs/Hours"
+        },
+        "week_total": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Hours"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "cells": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Hours"
+          },
+          "title": "Cells",
+          "type": "object"
+        }
+      },
+      "required": [
+        "resource_id",
+        "resource_type",
+        "name",
+        "day_total"
+      ],
+      "title": "ResourceRow",
+      "type": "object"
+    },
+    "ResourceType": {
+      "enum": [
+        "labor",
+        "equipment"
+      ],
+      "title": "ResourceType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "card_id": {
+      "title": "Card Id",
+      "type": "string"
+    },
+    "source": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source"
+    },
+    "job_number": {
+      "title": "Job Number",
+      "type": "string"
+    },
+    "job_name": {
+      "title": "Job Name",
+      "type": "string"
+    },
+    "foreman_id": {
+      "title": "Foreman Id",
+      "type": "string"
+    },
+    "foreman_name": {
+      "title": "Foreman Name",
+      "type": "string"
+    },
+    "shift": {
+      "default": 1,
+      "title": "Shift",
+      "type": "integer"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Date"
+    },
+    "week_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Week Key"
+    },
+    "cost_codes": {
+      "items": {
+        "$ref": "#/$defs/CostCode"
+      },
+      "title": "Cost Codes",
+      "type": "array"
+    },
+    "rows": {
+      "items": {
+        "$ref": "#/$defs/ResourceRow"
+      },
+      "title": "Rows",
+      "type": "array"
+    },
+    "notes": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "card_id",
+    "job_number",
+    "job_name",
+    "foreman_id",
+    "foreman_name",
+    "cost_codes",
+    "rows"
+  ],
+  "title": "Timecard",
+  "type": "object"
+}

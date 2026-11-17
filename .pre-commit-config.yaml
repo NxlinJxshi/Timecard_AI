@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: fixtures-validate
+        name: fixtures load and stay rule-clean
+        entry: python -m rules
+        language: system
+        files: ^(fixtures/cards/.*\.json|schema/.*\.py|rules/.*\.py)$
+        pass_filenames: false
+      - id: json-schemas-current
+        name: exported JSON schemas match the models
+        entry: python -m schema --check
+        language: system
+        files: ^schema/.*\.py$
+        pass_filenames: false

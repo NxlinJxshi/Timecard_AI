@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "card_id": "card4-dylan-powell-wkB",
+  "source": "image4.png",
+  "job_number": "31062-00",
+  "job_name": "Westmorland Elementary School",
+  "foreman_id": "904952",
+  "foreman_name": "Dylan Powell",
+  "shift": 1,
+  "date": null,
+  "week_key": "wkB",
+  "notes": [
+    "Date is not visible on the screenshot; order of card3 vs card4 within the week is unknown.",
+    "week_key is inferred: card3 and card4 show identical Weekly Hours for the four shared workers.",
+    "Only DT on the sample set: Dylan Powell 13 h = 8/4/1, consistent with CA daily DT past 12 h.",
+    "Dylan Powell: 6:30 AM-8:30 PM window is 14 h but logged total is 13 h (1.0 h gap, vs 0.5 h for everyone else).",
+    "David Scott (904336) is on card3 but not on this card."
+  ],
+  "cost_codes": [
+    {"code": "51214.4", "description": "Form; Pour; Strip Fou", "description_truncated": true, "quantity": 2, "unit": "EA", "badges": ["N"]},
+    {"code": "73020.7000", "description": "Foreman - Administrati", "description_truncated": true, "quantity": 1, "unit": "DA"}
+  ],
+  "rows": [
+    {
+      "resource_id": "904952", "resource_type": "labor", "name": "Dylan Powell", "badges": ["A"],
+      "resource_class": "SLLS-01", "class_description": "S CA Laborer Gro", "class_description_truncated": true,
+      "start": "06:30", "end": "20:30", "logged_total": 13, "day_total": "8/4/1", "week_total": "32/14/1",
+      "cells": {"51214.4": "8/4", "73020.7000": "//1"}
+    },
+    {
+      "resource_id": "ACE02393", "resource_type": "equipment", "name": "FRD, F600, 23 (A", "name_truncated": true,
+      "operator_id": "904952", "day_total": "8",
+      "cells": {"51214.4": "8"}
+    },
+    {
+      "resource_id": "906896", "resource_type": "labor", "name": "Jesus Sarabia",
+      "resource_class": "SLLS-04", "class_description": "S CA Laborer Gro", "class_description_truncated": true,
+      "start": "06:30", "end": "19:00", "logged_total": 12, "day_total": "8/4", "week_total": "32/10",
+      "cells": {"51214.4": "8/4"}
+    },
+    {
+      "resource_id": "907635", "resource_type": "labor", "name": "Tyler Ginter", "badges": ["A"],
+      "resource_class": "TUSDL-G4", "class_description": "Laborer Group 4",
+      "start": "06:30", "end": "19:00", "logged_total": 12, "day_total": "8/4", "week_total": "24/9",
+      "cells": {"51214.4": "8/4"}
+    },
+    {
+      "resource_id": "907042", "resource_type": "labor", "name": "Carlos Arredondo", "badges": ["A"],
+      "resource_class": "SLLS-A5", "class_description": "S CA Laborer App", "class_description_truncated": true,
+      "start": "06:30", "end": "19:00", "logged_total": 12, "day_total": "8/4", "week_total": "32/9",
+      "cells": {"51214.4": "8/4"}
+    },
+    {
+      "resource_id": "UAT7698", "resource_type": "equipment", "name": "SKYTRAK 10054,", "name_truncated": true,
+      "day_total": "8",
+      "cells": {"51214.4": "8"}
+    },
+    {
+      "resource_id": "AWP7241", "resource_type": "equipment", "name": "JLG 400S, BOOM", "name_truncated": true,
+      "day_total": "8",
+      "cells": {"51214.4": "8"}
+    },
+    {
+      "resource_id": "LBS7344", "resource_type": "equipment", "name": "BOBCAT S510, S", "name_truncated": true,
+      "day_total": "8",
+      "cells": {"51214.4": "8"}
+    }
+  ]
+}

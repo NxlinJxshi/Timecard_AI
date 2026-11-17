@@ -1,0 +1,234 @@
+{
+  "$defs": {
+    "ResourceType": {
+      "enum": [
+        "labor",
+        "equipment"
+      ],
+      "title": "ResourceType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One (resource, cost code) cell with its card, window and running totals.",
+  "properties": {
+    "card_id": {
+      "title": "Card Id",
+      "type": "string"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Date"
+    },
+    "week_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Week Key"
+    },
+    "job_number": {
+      "title": "Job Number",
+      "type": "string"
+    },
+    "foreman_id": {
+      "title": "Foreman Id",
+      "type": "string"
+    },
+    "shift": {
+      "title": "Shift",
+      "type": "integer"
+    },
+    "cost_code": {
+      "title": "Cost Code",
+      "type": "string"
+    },
+    "cost_code_description": {
+      "title": "Cost Code Description",
+      "type": "string"
+    },
+    "quantity": {
+      "title": "Quantity",
+      "type": "number"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "resource_id": {
+      "title": "Resource Id",
+      "type": "string"
+    },
+    "resource_type": {
+      "$ref": "#/$defs/ResourceType"
+    },
+    "resource_class": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resource Class"
+    },
+    "equipment_category": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Equipment Category"
+    },
+    "operator_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Operator Id"
+    },
+    "st": {
+      "title": "St",
+      "type": "number"
+    },
+    "ot": {
+      "title": "Ot",
+      "type": "number"
+    },
+    "dt": {
+      "title": "Dt",
+      "type": "number"
+    },
+    "start": {
+      "anyOf": [
+        {
+          "format": "time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Start"
+    },
+    "end": {
+      "anyOf": [
+        {
+          "format": "time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "End"
+    },
+    "logged_total": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Logged Total"
+    },
+    "day_st": {
+      "title": "Day St",
+      "type": "number"
+    },
+    "day_ot": {
+      "title": "Day Ot",
+      "type": "number"
+    },
+    "day_dt": {
+      "title": "Day Dt",
+      "type": "number"
+    },
+    "week_st": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Week St"
+    },
+    "week_ot": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Week Ot"
+    },
+    "week_dt": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Week Dt"
+    }
+  },
+  "required": [
+    "card_id",
+    "date",
+    "week_key",
+    "job_number",
+    "foreman_id",
+    "shift",
+    "cost_code",
+    "cost_code_description",
+    "quantity",
+    "unit",
+    "resource_id",
+    "resource_type",
+    "resource_class",
+    "equipment_category",
+    "operator_id",
+    "st",
+    "ot",
+    "dt",
+    "start",
+    "end",
+    "logged_total",
+    "day_st",
+    "day_ot",
+    "day_dt",
+    "week_st",
+    "week_ot",
+    "week_dt"
+  ],
+  "title": "Entry",
+  "type": "object"
+}

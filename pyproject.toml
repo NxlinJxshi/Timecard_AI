@@ -1,0 +1,29 @@
+[project]
+name = "constructiq"
+version = "0.1.0"
+description = "Construction timesheet anomaly detection: parse, rules, baselines, agent"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.6,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5", "pre-commit>=3"]
+stats = ["numpy", "scipy", "pandas"]
+agent = ["langgraph", "langsmith", "httpx"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["schema*", "rules*", "stats*", "agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
